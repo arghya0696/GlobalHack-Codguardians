@@ -21,7 +21,8 @@ You can see this pipeline actively running in the following reference repositori
 
 ## 📂 Architecture & File Structure
 
-<img width="1472" height="1160" alt="image" src="https://github.com/user-attachments/assets/273a3bb5-dcd1-43cc-82cf-42d85c98346e" />
+<img width="1472" height="1120" alt="image" src="https://github.com/user-attachments/assets/1ec4bc9a-67fe-46d6-99f6-e10f4adf76a2" />
+
 
 
 All automation scripts and configurations live inside the `.github/scripts/` directory.
@@ -186,3 +187,16 @@ if: failure()
           GITHUB_TOKEN:      ${{ secrets.GITHUB_TOKEN }}
         run: python .github/scripts/self_healer.py
 ```
+## ⚙️ Up Next
+
+<img width="1472" height="1640" alt="image" src="https://github.com/user-attachments/assets/ae6b3916-0b02-423b-96ca-d9efb9cce185" />
+
+
+Every workflow has exactly these stages:
+
+Claude predicts cross-repo blast radius before merge blocks CRITICAL changes
+TF plan or Docker build
+Claude self-heals on failure → patches code → fix/auto-heal-* branch → PR raised automatically
+Deploy (TF apply or ECS update-service)
+War room on deploy failure: log analyst → blast radius → config auditor → orchestrator → remediation (rollback/redeploy/hotfix-PR) → GitHub issue created
+
